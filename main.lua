@@ -180,6 +180,10 @@ AttackBar = require("src.engine.game.battle.ui.attackbar")
 TensionBar = require("src.engine.game.battle.ui.tensionbar")
 EnemyTextbox = require("src.engine.game.battle.ui.enemytextbox")
 
+LightBattle = require("src.engine.game.lightbattle")
+LightActionButton = require("src.engine.game.lightbattle.lightactionbutton")
+LightArena = require("src.engine.game.lightbattle.lightarena")
+
 FlashFade = require("src.engine.game.effects.flashfade")
 DamageNumber = require("src.engine.game.effects.damagenumber")
 HeartBurst = require("src.engine.game.effects.heartburst")

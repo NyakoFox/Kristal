@@ -393,6 +393,12 @@ function Game:loadQuick(fade)
 end
 
 function Game:encounter(encounter, transition, enemy)
+    -- lol
+    self:encounterLight(encounter)
+    return
+end
+
+function Game:encounterDarkThisIsTemporaryLol(encounter, transition, enemy)
     if transition == nil then transition = true end
 
     if self.battle then
@@ -412,6 +418,24 @@ function Game:encounter(encounter, transition, enemy)
         self.battle:postInit(transition, encounter)
     else
         self.battle:postInit(transition and "TRANSITION" or "INTRO", encounter)
+    end
+    self.stage:addChild(self.battle)
+end
+
+function Game:encounterLight(encounter, transition)
+    if transition == nil then transition = true end
+
+    if self.battle then
+        error("Attempt to enter battle while already in battle")
+    end
+
+    self.state = "BATTLE"
+
+    self.battle = LightBattle()
+    if type(transition) == "string" then
+        self.battle:postInit(transition, encounter)
+    else
+        self.battle:postInit(transition and "TRANSITION" or "ACTIONSELECT", encounter)
     end
     self.stage:addChild(self.battle)
 end

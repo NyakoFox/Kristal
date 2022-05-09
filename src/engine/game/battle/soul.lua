@@ -71,6 +71,8 @@ function Soul:init(x, y, color)
 
     self.shard_x_table = {-2, 0, 2, 8, 10, 12}
     self.shard_y_table = {0, 3, 6}
+
+    self.can_move = true
 end
 
 function Soul:shatter(count)
@@ -346,8 +348,10 @@ function Soul:update()
         return
     end
 
-    -- Input movement
-    self:doMovement()
+    if self.can_move then
+        -- Input movement
+        self:doMovement()
+    end
 
     -- Bullet collision !!! Yay
     if self.inv_timer > 0 then
